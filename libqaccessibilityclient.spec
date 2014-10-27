@@ -58,8 +58,8 @@ Development files for %{name}.
 %patch1 -p1 -b .QT4_BUILD
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 
 %cmake_qt4 \
 	-DQT4_BUILD:BOOL=ON
