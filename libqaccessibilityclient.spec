@@ -16,6 +16,7 @@ BuildRequires:	cmake
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
 BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	qt5-macros
 
 %description
 Accessibility client library for Qt.
