@@ -1,21 +1,21 @@
 %define major 0
-%define libname %mklibname qaccessibilityclient %{major}
-%define devname %mklibname qaccessibilityclient -d
+%define oldlibname %mklibname qaccessibilityclient %{major}
+%define libname %mklibname qaccessibilityclient-qt5 %{major}
+%define devname %mklibname qaccessibilityclient-qt5 -d
 
 Summary:	Accessibility client library for Qt
 Name:		libqaccessibilityclient
-Version:	0.1.1
-Release:	4
+Version:	0.2.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient
-Source0:	http://download.kde.org/stable/libqaccessibilityclient/%{name}-%{version}.tar.bz2
-Patch0:		qaccessibilityclient-0.1.0-dso.patch
-Patch1:		libqaccessibilityclient-0.1.1-QT4_BUILD.patch
+Source0:	http://download.kde.org/unstable/libqaccessibilityclient/%{name}-%{version}.tar.xz
+Patch0:		libqaccessibilityclient-0.2.0-clang-buildfix.patch
 BuildRequires:	cmake
-BuildRequires:	pkgconfig(QtCore)
-BuildRequires:	pkgconfig(QtDBus)
-BuildRequires:	pkgconfig(QtGui)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5DBus)
+BuildRequires:	pkgconfig(Qt5Gui)
 
 %description
 Accessibility client library for Qt.
@@ -25,13 +25,14 @@ Accessibility client library for Qt.
 %package -n %{libname}
 Summary:	Accessibility client library for Qt
 Group:		System/Libraries
+Obsoletes:	%{oldlibname} < %{EVRD}
 
 %description -n %{libname}
 Accessibility client library for Qt.
 
 %files -n %{libname}
 %doc AUTHORS ChangeLog COPYING README
-%{_libdir}/libqaccessibilityclient.so.%{major}*
+%{_libdir}/libqaccessibilityclient-qt5.so.%{major}*
 
 #----------------------------------------------------------------------------
 
@@ -48,21 +49,17 @@ Development files for %{name}.
 %{_includedir}/qaccessibilityclient/
 %dir %{_libdir}/cmake/
 %{_libdir}/cmake/QAccessibilityClient/
-%{_libdir}/libqaccessibilityclient.so
+%{_libdir}/libqaccessibilityclient-qt5.so
 
 #----------------------------------------------------------------------------
 
 %prep
 %setup -q
-%patch0 -p1 -b .dso
-%patch1 -p1 -b .QT4_BUILD
+%apply_patches
 
 %build
-export CC=gcc
-export CXX=g++
-
-%cmake_qt4 \
-	-DQT4_BUILD:BOOL=ON
+%cmake_qt5 \
+	-DQT4_BUILD:BOOL=OFF
 %make
 
 %install
