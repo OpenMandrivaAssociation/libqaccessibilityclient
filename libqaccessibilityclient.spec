@@ -16,6 +16,7 @@ BuildRequires:	cmake
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
 BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	qmake5
 BuildRequires:	qt5-macros
 
 %description
