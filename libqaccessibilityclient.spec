@@ -61,7 +61,8 @@ Development files for %{name}.
 
 %build
 %cmake_qt5 \
-	-DQT4_BUILD:BOOL=OFF
+	-DQT4_BUILD:BOOL=OFF \
+	-DQT5_BUILD:BOOL=ON
 %make
 
 %install
