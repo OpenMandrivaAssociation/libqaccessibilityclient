@@ -59,7 +59,7 @@ Development files for %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %cmake_qt5 \
