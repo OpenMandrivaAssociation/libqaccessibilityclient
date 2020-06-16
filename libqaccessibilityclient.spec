@@ -11,7 +11,6 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient
 Source0:	http://download.kde.org/unstable/libqaccessibilityclient/%{name}-%{version}.tar.xz
-Patch0:		libqaccessibilityclient-0.2.0-clang-buildfix.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
