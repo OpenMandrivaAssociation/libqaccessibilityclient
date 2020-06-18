@@ -23,6 +23,12 @@ BuildRequires:	qt5-macros
 %description
 Accessibility client library for Qt.
 
+%files
+%doc AUTHORS README.md ChangeLog
+%license COPYING
+%{_bindir}/dumper
+%{_bindir}/accessibleapps
+
 #----------------------------------------------------------------------------
 
 %package -n %{libname}
@@ -34,7 +40,6 @@ Obsoletes:	%{oldlibname} < %{EVRD}
 Accessibility client library for Qt.
 
 %files -n %{libname}
-%doc AUTHORS ChangeLog COPYING
 %{_libdir}/libqaccessibilityclient-qt5.so.%{major}*
 
 #----------------------------------------------------------------------------
@@ -57,19 +62,15 @@ Development files for %{name}.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 %cmake_qt5 \
 	-DQT4_BUILD:BOOL=OFF \
 	-DQT5_BUILD:BOOL=ON
-%make
+
+%make_build
 
 %install
-%makeinstall_std -C build
-
-## unpackaged files
-# consider putting into -tools subpkg?
-rm -f %{buildroot}%{_bindir}/accessibleapps
+%make_install -C build
 
