@@ -34,7 +34,7 @@ Obsoletes:	%{oldlibname} < %{EVRD}
 Accessibility client library for Qt.
 
 %files -n %{libname}
-%doc AUTHORS ChangeLog COPYING README
+%doc AUTHORS ChangeLog COPYING
 %{_libdir}/libqaccessibilityclient-qt5.so.%{major}*
 
 #----------------------------------------------------------------------------
