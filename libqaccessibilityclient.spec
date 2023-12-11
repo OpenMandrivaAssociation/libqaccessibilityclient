@@ -81,7 +81,8 @@ cd ..
 
 export CMAKE_BUILD_DIR=build-qt6 
 %cmake \
-    -DQT_MAJOR_VERSION=6
+    -DQT_MAJOR_VERSION=6 \
+    -G Ninja
 
 %make_build
 
