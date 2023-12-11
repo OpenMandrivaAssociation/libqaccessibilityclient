@@ -5,8 +5,8 @@
 
 Summary:	Accessibility client library for Qt
 Name:		libqaccessibilityclient
-Version:	0.4.1
-Release:	2
+Version:	0.6.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://projects.kde.org/projects/playground/accessibility/libkdeaccessibilityclient
