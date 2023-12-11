@@ -26,7 +26,7 @@ Accessibility client library for Qt.
 %files
 %doc AUTHORS README.md
 %{_bindir}/dumper
-#{_bindir}/accessibleapps
+%{_datadir}/qlogging-categories5/libqaccessibilityclient.categories
 
 #----------------------------------------------------------------------------
 
@@ -56,6 +56,7 @@ Development files for %{name}.
 %dir %{_libdir}/cmake/
 %{_libdir}/cmake/QAccessibilityClient/
 %{_libdir}/libqaccessibilityclient-qt5.so
+%{_includedir}/QAccessibilityClient/
 
 #----------------------------------------------------------------------------
 
