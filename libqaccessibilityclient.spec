@@ -84,12 +84,12 @@ export CMAKE_BUILD_DIR=build-qt6
     -DQT_MAJOR_VERSION=6 \
     -G Ninja
 
-%make_build
+%ninja_build
 
-%make_build -C build-qt6
+%ninja_build -C build-qt6
 
 %install
-%make_install -C build
+%ninja_install -C build
 
-%make_install -C build-qt6
+%ninja_install -C build-qt6
 
