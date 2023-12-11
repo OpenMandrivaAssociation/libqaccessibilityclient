@@ -53,7 +53,6 @@ Provides:	qaccessibilityclient-devel = %{EVRD}
 Development files for %{name}.
 
 %files -n %{devname}
-%{_includedir}/qaccessibilityclient/
 %dir %{_libdir}/cmake/
 %{_libdir}/cmake/QAccessibilityClient/
 %{_libdir}/libqaccessibilityclient-qt5.so
