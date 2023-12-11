@@ -24,10 +24,9 @@ BuildRequires:	qt5-macros
 Accessibility client library for Qt.
 
 %files
-%doc AUTHORS README.md ChangeLog
-%license COPYING
+%doc AUTHORS README.md
 %{_bindir}/dumper
-%{_bindir}/accessibleapps
+#{_bindir}/accessibleapps
 
 #----------------------------------------------------------------------------
 
