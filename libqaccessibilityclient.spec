@@ -2,6 +2,9 @@
 %define oldlibname %mklibname qaccessibilityclient %{major}
 %define libname %mklibname qaccessibilityclient-qt5 %{major}
 %define devname %mklibname qaccessibilityclient-qt5 -d
+#------------------------------------------------------
+%define libqt6name %mklibname qaccessibilityclient-qt6
+%define devqt6name %mklibname qaccessibilityclient-qt6 -d
 
 Summary:	Accessibility client library for Qt
 Name:		libqaccessibilityclient
@@ -19,6 +22,13 @@ BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	qmake5
 BuildRequires:	qt5-macros
+# QT6
+BuildRequires:  cmake(Qt6)
+BuildRequires:  cmake(Qt6Core)
+BuildRequires:	cmake(Qt6DBus)
+BuildRequires:  cmake(Qt6Gui)
+BuildRequires:  cmake(Qt6Test)
+BuildRequires:  cmake(Qt6Widgets)
 
 %description
 Accessibility client library for Qt.
@@ -67,9 +77,17 @@ Development files for %{name}.
 %cmake_qt5 \
 	-DQT4_BUILD:BOOL=OFF \
 	-DQT5_BUILD:BOOL=ON
-
+cd ..
+export CMAKE_BUILD_DIR=build-qt6 
+%cmake \
+    -DQT_MAJOR_VERSION=6
+cd ..
 %make_build
+
+%make_build -C build-qt6
 
 %install
 %make_install -C build
+
+%make_install -C build-qt6
 
