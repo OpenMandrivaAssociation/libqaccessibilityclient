@@ -81,9 +81,9 @@ cd ..
 
 export CMAKE_BUILD_DIR=build-qt6 
 %cmake \
-    -DQT_MAJOR_VERSION=6 \
+    -DQT_MAJOR_VERSION=6
 
-%make_build -C build
+%make_build
 
 %make_build -C build-qt6
 
