@@ -73,7 +73,7 @@ Development files for %{name}.
 
 %prep
 %autosetup -p1
-%build
+
 %cmake_qt5 \
 	-DQT4_BUILD:BOOL=OFF \
 	-DQT5_BUILD:BOOL=ON
@@ -82,7 +82,7 @@ cd ..
 export CMAKE_BUILD_DIR=build-qt6 
 %cmake \
     -DQT_MAJOR_VERSION=6
-
+%build
 %make_build
 
 %make_build -C build-qt6
